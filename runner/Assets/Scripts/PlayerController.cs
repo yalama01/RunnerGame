@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     
 
     //jump coeffecient
-    public float jump = 2f;
+    public float jump = 8f;
     private void Start()
     {
         //a call for the rigidbody
         rb = GetComponent<Rigidbody>();
+
+        
     }
 
     // Update is called once per frame
@@ -33,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        grounded = true;
+        if (collision.gameObject.tag == "ground")
+        {
+            grounded = true;
+        }
+        
     }
 }

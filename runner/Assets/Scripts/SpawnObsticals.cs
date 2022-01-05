@@ -11,8 +11,8 @@ public class SpawnObsticals : MonoBehaviour
     public GameObject obstical;
 
     //timing
-    float startupTime = 2f;
-    float spawnTime = 1.5f;
+    float startupTime = .5f;
+    float spawnTime = 2f;
     
     //
 

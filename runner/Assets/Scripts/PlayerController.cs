@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    bool grounded = true;
     
 
     //jump coeffecient
@@ -18,10 +20,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && grounded)
         {
+            // makes char jump
             rb.AddForce(transform.up * jump, ForceMode.Impulse);
+            
+            
+            // grounding logic
+            grounded = false;
         }
-        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        grounded = true;
     }
 }
